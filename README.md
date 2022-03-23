@@ -8,4 +8,4 @@ a collection on userscripts for the [min](https://github.com/minbrowser/min) bro
 ### Focus
 Block websites that distract you
 ### DeepL translate
-Because Min's built-in translation function is not yet working properly: Translate a text passage as soon as you have selected it.
+Because Min's built-in translation function is not yet working properly: translates a text passage as soon as you have selected it.
