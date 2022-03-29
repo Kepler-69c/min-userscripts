@@ -52,13 +52,13 @@ function fadeOut(){ //fade out
         copyBox.setAttribute('href', 'https://www.deepl.com/en/translator#en/en/'+cText+'/'); //set link
         copyBox.setAttribute('target', '_blank'); //link should open in a new tab
         copyBox.setAttribute('id', 'kepler-userscript'); // mark as created by userscript
-        copyBox.setAttribute('style', 'text-decoration:none;color:black;padding:5px 10px;border-radius: 3px;box-shadow: 1px 1px 4px #000;position:fixed;left:'+oRect.x+'px;top:'+oRect.y+'px;background:white;z-index:999;'); //set style
+        copyBox.setAttribute('style', 'text-decoration:none;color:black;padding:5px 10px;border-radius: 3px;box-shadow: 1px 1px 4px #000;position:fixed;left:'+oRect.x+'px;top:'+(oRect.y + 30)+'px;background:white;z-index:999;'); //set style
 
         document.getElementsByTagName('body')[0].append(copyBox); //append the link to the website
 
         navigator.clipboard.writeText(cText); //copy selection co clipboard
         window.getSelection().removeAllRanges(); //remove selection
-        fadeOut(); //remove link
+        fadeOut();
 
         //console.log('Left: '+oRect.x+'\nTop: '+oRect.y);
       }
