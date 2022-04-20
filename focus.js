@@ -9,6 +9,8 @@
 var keyword = 'wallpaper';
 // add button to continue to blocked website
 var showButton = true;
+//duration in s before button appears
+var appearTime = 2;
 
 var gradientArray = [
   'linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)',
@@ -104,17 +106,17 @@ function randomImage() {
 
 //append button to continue to website
 function appendButton() {
-  var button = create('div', 'userscript-button', 'font-weight:900;position:absolute;bottom:5vh;left:50%;transform:translateX(-50%);z-index:2;color: white;font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 2.5vw;background: transparent;background-image: linear-gradient( to right, rgba(44, 130, 201, 0.1), rgba(44, 130, 201, 0.7) 4%, rgba(44,130, 201, 0.3) );-webkit-box-decoration-break: clone;margin: 0 -0.4em;padding: 0.1em 0.4em;border-radius: 0.8em 0.3em;user-select:none;cursor:pointer;');
+  var button = create('div', 'userscript-button', 'font-weight:900;position:absolute;bottom:5vh;left:50%;transform:translateX(-50%);z-index:2;color: white;font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 2.5vw;background: transparent;background-image: linear-gradient( to right, rgba(44, 130, 201, 0.1), rgba(44, 130, 201, 0.7) 4%, rgba(44,130, 201, 0.3) );-webkit-box-decoration-break: clone;margin: 0 -0.4em;padding: 0.1em 0.4em;border-radius: 0.8em 0.3em;user-select:none;cursor:pointer;transition:.5s;');
   button.innerHTML = 'Continue to Website';
-  document.getElementsByClassName('userscript-background')[0].append(button);
-  document.getElementsByClassName('userscript-button')[0].addEventListener('click', removeQuote, false);
+  setTimeout(function() {
+    document.getElementsByClassName('userscript-background')[0].append(button);
+    document.getElementsByClassName('userscript-button')[0].addEventListener('click', removeQuote, false);
+  }, appearTime*1000);
 }
 
 function removeQuote() {
   document.getElementsByClassName('userscript-background')[0].remove();
 }
-
-console.log('debug');
 
   appendElements();
   randomGradient();
